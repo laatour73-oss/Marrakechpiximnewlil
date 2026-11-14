@@ -4173,3 +4173,39 @@ $('mpx-msg-copy').addEventListener('click',async function(){const status=$('mpx-
 </script>
 
 </body></html>
+<style>
+#mpx-intro[hidden],
+#mpx-home[hidden] {
+  display: none !important;
+}
+
+#mpx-intro {
+  position: relative;
+  z-index: 9999;
+}
+
+#mpx-home {
+  display: block;
+  min-height: 100vh;
+}
+</style>
+
+<script>
+window.addEventListener("load", function () {
+  const intro = document.getElementById("mpx-intro");
+  const home = document.getElementById("mpx-home");
+
+  // Emergency fallback: never leave a blank green screen
+  setTimeout(function () {
+    if (home) {
+      home.hidden = false;
+      home.style.display = "block";
+    }
+
+    if (intro) {
+      intro.hidden = true;
+    }
+  }, 20000);
+});
+</script>
+
